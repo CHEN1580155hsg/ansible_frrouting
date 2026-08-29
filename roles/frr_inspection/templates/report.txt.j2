@@ -21,5 +21,16 @@ BGP Peer 总数: {{ bgp_peer_count }}
 - 无建立的 BGP Peer
 {% endfor %}
 
+[OSPF 状态及邻居]
+Router ID: {{ ospf_router_id }}
+OSPF 区域数: {{ ospf_area_count }}
+外部 LSA 数: {{ ospf_lsa_external_count }}
+OSPF 邻居总数: {{ ospf_neighbor_count }}
+{% for nbr in ospf_neighbors_info %}
+- Router ID: {{ nbr.router_id }} | 接口 IP: {{ nbr.ip }} | 物理接口: {{ nbr.interface }} | 状态/角色: {{ nbr.state }}/{{ nbr.role }} | 建立时间: {{ nbr.uptime }}
+{% else %}
+- 无建立的 OSPF 邻居
+{% endfor %}
+
 [运行服务清单]
 {{ running_svc.stdout }}

@@ -5,14 +5,24 @@
 - name: 收集 BGP 信息
   ansible.builtin.include_tasks: bgp.yml
 
+- name: 收集 OSPF 信息
+  ansible.builtin.include_tasks: ospf.yml
+
 - name: 生成本地报告文本文件
   ansible.builtin.template:
     src: report.txt.j2
     dest: "./report/{{ inventory_hostname }}.log"
   delegate_to: localhost
 
-- name: 生成专供网页调用的 JSON 状态文件
+- name: 生成bgp状态JSON文件，本地输出
   ansible.builtin.template:
     src: bgp_status.json.j2
     dest: "./realtime/{{ inventory_hostname }}_bgp.json"
   delegate_to: localhost
+
+- name: 生成ospf状态JSON文件，本地输出
+  ansible.builtin.template:
+    src: ospf_status.json.j2
+    dest: "./realtime/{{ inventory_hostname }}_ospf.json"
+  delegate_to: localhost
+

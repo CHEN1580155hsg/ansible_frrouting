@@ -1,0 +1,48 @@
+- name: 获取 OSPF 路由条目数
+  ansible.builtin.shell: vtysh -c "show ip route" | grep -c "^O" || true
+  register: ospf_route_count
+  changed_when: false
+
+- name: 获取 OSPF 基础统计 JSON 数据
+  ansible.builtin.command: vtysh -c "show ip ospf json"
+  register: ospf_raw
+  changed_when: false
+
+- name: 获取 OSPF 邻居列表 JSON 数据
+  ansible.builtin.command: vtysh -c "show ip ospf neighbor all json"
+  register: ospf_neighbors_raw
+  changed_when: false
+
+- name: 解析 OSPF JSON 数据
+  ansible.builtin.set_fact:
+    ospf_json: "{{ ospf_raw.stdout | from_json }}"
+    ospf_nbr_json: "{{ ospf_neighbors_raw.stdout | from_json }}"
+  when:
+    - ospf_raw.stdout | length > 0
+    - ospf_neighbors_raw.stdout | length > 0
+
+- name: 提取 OSPF 关键统计与邻居列表
+  ansible.builtin.set_fact:
+    ospf_router_id: "{{ ospf_json.routerId | default('0.0.0.0') }}"
+    ospf_area_count: "{{ (ospf_json.areas | default({})).keys() | length }}"
+    ospf_lsa_external_count: "{{ ospf_json.lsaExternalCounter | default(0) }}"
+    ospf_neighbor_count: "{{ (ospf_nbr_json | default({})).keys() | length }}"
+    ospf_neighbors_info: >-
+      [
+        {% set neighbors = [] %}
+        {% for rtr_id, nbr_instances in (ospf_nbr_json | default({})).items() %}
+          {% for nbr in nbr_instances %}
+            {% set _ = neighbors.append({
+              "router_id": rtr_id,
+              "ip": nbr.ifaceAddress | default(''),
+              "interface": nbr.ifaceName | default(''),
+              "state": nbr.nbrState | default('Unknown'),
+              "role": nbr.role | default('Unknown'),
+              "uptime": nbr.upTime | default('0s')
+            }) %}
+          {% endfor %}
+        {% endfor %}
+        {% for nbr in neighbors %}
+          {{ nbr | to_json }}{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ]

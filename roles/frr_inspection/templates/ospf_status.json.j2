@@ -1,0 +1,12 @@
+{
+  "hostname": "{{ inventory_hostname }}",
+  "timestamp": "{{ ansible_date_time.iso8601 }}",
+  "ospf_summary": {
+    "router_id": "{{ ospf_router_id }}",
+    "area_count": {{ ospf_area_count }},
+    "total_neighbors": {{ ospf_neighbor_count }},
+    "ospf_routes": {{ ospf_route_count.stdout }},
+    "external_lsa_count": {{ ospf_lsa_external_count }},
+    "neighbors": {{ ospf_neighbors_info | to_nice_json }}
+  }
+}

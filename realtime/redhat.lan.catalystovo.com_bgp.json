@@ -1,9 +1,0 @@
-{
-  "hostname": "redhat.lan.catalystovo.com",
-  "timestamp": "2026-08-29T09:37:12Z",
-  "bgp_summary": {
-    "total_peers": 0,
-    "bgp_routes": 0,
-    "peers": []
-  }
-}
