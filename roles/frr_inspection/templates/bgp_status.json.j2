@@ -1,0 +1,9 @@
+{
+  "hostname": "{{ inventory_hostname }}",
+  "timestamp": "{{ ansible_date_time.iso8601 }}",
+  "bgp_summary": {
+    "total_peers": {{ bgp_peer_count }},
+    "bgp_routes": {{ bgp_route_count.stdout }},
+    "peers": {{ bgp_peers_info | to_nice_json }}
+  }
+}

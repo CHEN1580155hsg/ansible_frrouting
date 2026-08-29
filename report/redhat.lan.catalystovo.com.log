@@ -1,0 +1,43 @@
+=========================================
+      主机 redhat.lan.catalystovo.com 巡检报告
+=========================================
+
+[系统基础信息]
+主机名: redhat
+系统: RedHat 10.2
+内核: 6.12.0-211.49.1.el10_2.aarch64
+总内存: 1695 MB
+CPU核数: 2
+
+[路由及协议概览]
+BGP 路由条目数: 0
+OSPF 路由条目数: 26
+
+[BGP Peer 状态]
+BGP Peer 总数: 0
+- 无建立的 BGP Peer
+
+[运行服务清单]
+  auditd.service           loaded active running Security Audit Logging Service
+  chronyd.service          loaded active running NTP client/server
+  crond.service            loaded active running Command Scheduler
+  dbus-broker.service      loaded active running D-Bus System Message Bus
+  firewalld.service        loaded active running firewalld - dynamic firewall daemon
+  frr.service              loaded active running FRRouting
+  fwupd.service            loaded active running Firmware update daemon
+  getty@tty1.service       loaded active running Getty on tty1
+  irqbalance.service       loaded active running irqbalance daemon
+  named.service            loaded active running Berkeley Internet Name Domain (DNS)
+  NetworkManager.service   loaded active running Network Manager
+  polkit.service           loaded active running Authorization Manager
+  rhsmcertd.service        loaded active running Enable periodic update of entitlement certificates.
+  rsyslog.service          loaded active running System Logging Service
+  sshd.service             loaded active running OpenSSH server daemon
+  sssd-kcm.service         loaded active running SSSD Kerberos Cache Manager
+  systemd-journald.service loaded active running Journal Service
+  systemd-logind.service   loaded active running User Login Management
+  systemd-udevd.service    loaded active running Rule-based Manager for Device Events and Files
+  systemd-userdbd.service  loaded active running User Database Manager
+  udisks2.service          loaded active running Disk Manager
+  user@0.service           loaded active running User Manager for UID 0
+  zabbix-agent.service     loaded active running Zabbix Agent

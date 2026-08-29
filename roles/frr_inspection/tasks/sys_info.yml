@@ -1,0 +1,10 @@
+---
+- name: 查看运行中的服务
+  ansible.builtin.command: systemctl list-units --type=service --state running --no-legend
+  register: running_svc
+  changed_when: false
+
+- name: 获取 OSPF 路由条目数
+  ansible.builtin.shell: vtysh -c "show ip route" | grep -c "^O" || true
+  register: ospf_route_count
+  changed_when: false

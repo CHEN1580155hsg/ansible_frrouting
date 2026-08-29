@@ -1,0 +1,18 @@
+---
+- name: 收集系统信息
+  ansible.builtin.include_tasks: sys_info.yml
+
+- name: 收集 BGP 信息
+  ansible.builtin.include_tasks: bgp.yml
+
+- name: 生成本地报告文本文件
+  ansible.builtin.template:
+    src: report.txt.j2
+    dest: "./report/{{ inventory_hostname }}.log"
+  delegate_to: localhost
+
+- name: 生成专供网页调用的 JSON 状态文件
+  ansible.builtin.template:
+    src: bgp_status.json.j2
+    dest: "./realtime/{{ inventory_hostname }}_bgp.json"
+  delegate_to: localhost

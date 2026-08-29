@@ -1,0 +1,14 @@
+- name: 实时获取 BGP 状态
+  hosts: frrouting
+  gather_facts: false 
+  tasks:
+    - name: 仅执行 BGP 采集任务
+      ansible.builtin.include_role:
+        name: frr_inspection
+        tasks_from: bgp
+
+    - name: 更新前端 JSON 接口文件
+      ansible.builtin.template:
+        src: roles/frr_inspection/templates/bgp_status.json.j2
+        dest: "./realtime/{{ inventory_hostname }}_bgp.json"
+      delegate_to: localhost

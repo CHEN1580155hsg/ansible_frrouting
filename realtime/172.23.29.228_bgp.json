@@ -1,0 +1,38 @@
+{
+  "hostname": "172.23.29.228",
+  "timestamp": "2026-08-29T09:37:18Z",
+  "bgp_summary": {
+    "total_peers": 4,
+    "bgp_routes": 1240,
+    "peers": [
+    {
+        "as": "4242423914",
+        "ip": "172.20.53.103",
+        "pfx_rcd": "0",
+        "state": "Active",
+        "uptime": "01w1d03h"
+    },
+    {
+        "as": "4242420482",
+        "ip": "172.23.29.229",
+        "pfx_rcd": "0",
+        "state": "Established",
+        "uptime": "19:53:40"
+    },
+    {
+        "as": "4242422189",
+        "ip": "172.23.91.115",
+        "pfx_rcd": "1240",
+        "state": "Established",
+        "uptime": "01w1d03h"
+    },
+    {
+        "as": "4242422189",
+        "ip": "172.23.91.125",
+        "pfx_rcd": "0",
+        "state": "Active",
+        "uptime": "01w1d03h"
+    }
+]
+  }
+}

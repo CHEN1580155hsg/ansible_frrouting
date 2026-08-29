@@ -1,0 +1,30 @@
+---
+- name: 获取 BGP 路由条目数
+  ansible.builtin.shell: vtysh -c "show ip route" | grep -c "^B" || true
+  register: bgp_route_count
+  changed_when: false
+
+- name: 获取 BGP Summary JSON 数据
+  ansible.builtin.command: vtysh -c "show bgp summary json"
+  register: bgp_summary_raw
+  changed_when: false
+
+- name: 解析 BGP JSON 数据
+  ansible.builtin.set_fact:
+    bgp_json: "{{ bgp_summary_raw.stdout | from_json }}"
+
+- name: 提取 IPv4 Unicast 邻居列表与统计信息
+  ansible.builtin.set_fact:
+    bgp_peers_info: >-
+      [
+        {% for ip, info in (bgp_json.ipv4Unicast.peers | default({})).items() %}
+        {
+          "ip": "{{ ip }}",
+          "as": "{{ info.remoteAs }}",
+          "uptime": "{{ info.peerUptime }}",
+          "pfx_rcd": "{{ info.pfxRcd | default(0) }}",
+          "state": "{{ info.state }}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ]
+    bgp_peer_count: "{{ (bgp_json.ipv4Unicast.peers | default({})).keys() | length }}"

@@ -1,0 +1,5 @@
+- name: FRRouting 网络设备完整巡检
+  hosts: frrouting
+  gather_facts: true
+  roles:
+    - frr_inspection

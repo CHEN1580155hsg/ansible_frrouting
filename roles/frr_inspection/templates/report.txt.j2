@@ -1,0 +1,25 @@
+=========================================
+      主机 {{ inventory_hostname }} 巡检报告
+=========================================
+
+[系统基础信息]
+主机名: {{ ansible_hostname }}
+系统: {{ ansible_distribution }} {{ ansible_distribution_version }}
+内核: {{ ansible_kernel }}
+总内存: {{ ansible_memtotal_mb }} MB
+CPU核数: {{ ansible_processor_vcpus }}
+
+[路由及协议概览]
+BGP 路由条目数: {{ bgp_route_count.stdout }}
+OSPF 路由条目数: {{ ospf_route_count.stdout }}
+
+[BGP Peer 状态]
+BGP Peer 总数: {{ bgp_peer_count }}
+{% for peer in bgp_peers_info %}
+- 邻居 IP: {{ peer.ip }} | Remote AS: {{ peer.as }} | 状态/收表数: {{ peer.state }}/{{ peer.pfx_rcd }} | 建立时间: {{ peer.uptime }}
+{% else %}
+- 无建立的 BGP Peer
+{% endfor %}
+
+[运行服务清单]
+{{ running_svc.stdout }}
