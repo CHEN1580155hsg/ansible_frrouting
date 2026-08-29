@@ -1,0 +1,63 @@
+=========================================
+      主机 fedora.lan.catalystovo.com 巡检报告
+=========================================
+
+[系统基础信息]
+主机名: fedora
+系统: Fedora 42
+内核: 6.19.14-108.fc42.aarch64
+总内存: 3886 MB
+CPU核数: 2
+
+[路由及协议概览]
+BGP 路由条目数: 1135
+OSPF 路由条目数: 10
+
+[BGP Peer 状态]
+BGP Peer 总数: 1
+- 邻居 IP: 172.23.29.228 | Remote AS: 4242420482 | 状态/收表数: Established/1134 | 建立时间: 21:25:33
+
+[OSPF 状态及邻居]
+Router ID: 10.255.0.3
+OSPF 区域数: 1
+外部 LSA 数: 18
+OSPF 邻居总数: 2
+- Router ID: 10.255.0.4 | 接口 IP: 192.168.20.2 | 物理接口: enp0s5:192.168.20.1 | 状态/角色: Full/DR/DR | 建立时间: 21h15m44s
+- Router ID: 10.255.0.2 | 接口 IP: 192.168.20.254 | 物理接口: enp0s5:192.168.20.1 | 状态/角色: Full/Backup/Backup | 建立时间: 21h15m47s
+
+[运行服务清单]
+  abrt-journal-core.service   loaded active running ABRT coredumpctl message creator
+  abrt-oops.service           loaded active running ABRT kernel log watcher
+  abrt-xorg.service           loaded active running ABRT Xorg log watcher
+  abrtd.service               loaded active running ABRT Daemon
+  auditd.service              loaded active running Security Audit Logging Service
+  avahi-daemon.service        loaded active running Avahi mDNS/DNS-SD Stack
+  cups.service                loaded active running CUPS Scheduler
+  dbus-broker.service         loaded active running D-Bus System Message Bus
+  firewalld.service           loaded active running firewalld - dynamic firewall daemon
+  frr.service                 loaded active running FRRouting
+  getty@tty1.service          loaded active running Getty on tty1
+  gssproxy.service            loaded active running GSSAPI Proxy Daemon
+  httpd.service               loaded active running The Apache HTTP Server
+  low-memory-monitor.service  loaded active running Low Memory Monitor
+  mariadb.service             loaded active running MariaDB 10.11 database server
+  ModemManager.service        loaded active running Modem Manager
+  named.service               loaded active running Berkeley Internet Name Domain (DNS)
+  NetworkManager.service      loaded active running Network Manager
+  php-fpm.service             loaded active running The PHP FastCGI Process Manager
+  polkit.service              loaded active running Authorization Manager
+  prltoolsd.service           loaded active running Parallels Tools Daemon
+  radiusd.service             loaded active running FreeRADIUS high performance RADIUS server.
+  sshd.service                loaded active running OpenSSH server daemon
+  systemd-journald.service    loaded active running Journal Service
+  systemd-logind.service      loaded active running User Login Management
+  systemd-machined.service    loaded active running Virtual Machine and Container Registration Service
+  systemd-resolved.service    loaded active running Network Name Resolution
+  systemd-udevd.service       loaded active running Rule-based Manager for Device Events and Files
+  systemd-userdbd.service     loaded active running User Database Manager
+  tuned.service               loaded active running Dynamic System Tuning Daemon
+  uresourced.service          loaded active running User resource assignment daemon
+  user@0.service              loaded active running User Manager for UID 0
+  wg-watch-jtti-dn42.service  loaded active running WireGuard jtti-dn42 watchdog
+  zabbix-agent.service        loaded active running Zabbix Monitor Agent
+  zabbix-server-mysql.service loaded active running Zabbix Server with MySQL DB

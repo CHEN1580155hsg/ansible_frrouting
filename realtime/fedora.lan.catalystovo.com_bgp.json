@@ -1,0 +1,17 @@
+{
+  "hostname": "fedora.lan.catalystovo.com",
+  "timestamp": "2026-08-29T11:09:13Z",
+  "bgp_summary": {
+    "total_peers": 1,
+    "bgp_routes": 1135,
+    "peers": [
+    {
+        "as": "4242420482",
+        "ip": "172.23.29.228",
+        "pfx_rcd": "1134",
+        "state": "Established",
+        "uptime": "21:25:33"
+    }
+]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "hostname": "172.23.29.228",
+  "timestamp": "2026-08-29T11:09:21Z",
+  "ospf_summary": {
+    "router_id": "0.0.0.0",
+    "area_count": 0,
+    "total_neighbors": 0,
+    "ospf_routes": 0,
+    "external_lsa_count": 0,
+    "neighbors": []
+  }
+}

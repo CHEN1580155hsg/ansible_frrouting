@@ -1,0 +1,29 @@
+{
+  "hostname": "redhat.lan.catalystovo.com",
+  "timestamp": "2026-08-29T11:09:13Z",
+  "ospf_summary": {
+    "router_id": "10.255.0.4",
+    "area_count": 1,
+    "total_neighbors": 2,
+    "ospf_routes": 26,
+    "external_lsa_count": 18,
+    "neighbors": [
+    {
+        "interface": "enp0s5:192.168.20.2",
+        "ip": "192.168.20.1",
+        "role": "DROther",
+        "router_id": "10.255.0.3",
+        "state": "Full/DROther",
+        "uptime": "21h15m44s"
+    },
+    {
+        "interface": "enp0s5:192.168.20.2",
+        "ip": "192.168.20.254",
+        "role": "Backup",
+        "router_id": "10.255.0.2",
+        "state": "Full/Backup",
+        "uptime": "2d00h41m"
+    }
+]
+  }
+}

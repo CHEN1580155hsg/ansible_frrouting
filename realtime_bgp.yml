@@ -1,6 +1,6 @@
 - name: 实时获取 BGP 状态
   hosts: frrouting
-  gather_facts: false 
+  gather_facts: true 
   tasks:
     - name: 仅执行 BGP 采集任务
       ansible.builtin.include_role:

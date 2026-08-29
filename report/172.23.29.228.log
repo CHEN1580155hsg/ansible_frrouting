@@ -1,0 +1,51 @@
+=========================================
+      主机 172.23.29.228 巡检报告
+=========================================
+
+[系统基础信息]
+主机名: 019df7fe-0f4a-79d1-9b85-4d61f5d306fc
+系统: CentOS 10
+内核: 6.12.0-116.el10.x86_64
+总内存: 954 MB
+CPU核数: 1
+
+[路由及协议概览]
+BGP 路由条目数: 1241
+OSPF 路由条目数: 0
+
+[BGP Peer 状态]
+BGP Peer 总数: 4
+- 邻居 IP: 172.20.53.103 | Remote AS: 4242423914 | 状态/收表数: Active/0 | 建立时间: 01w1d05h
+- 邻居 IP: 172.23.29.229 | Remote AS: 4242420482 | 状态/收表数: Established/0 | 建立时间: 21:25:38
+- 邻居 IP: 172.23.91.115 | Remote AS: 4242422189 | 状态/收表数: Established/1241 | 建立时间: 01w1d05h
+- 邻居 IP: 172.23.91.125 | Remote AS: 4242422189 | 状态/收表数: Active/0 | 建立时间: 01w1d05h
+
+[OSPF 状态及邻居]
+Router ID: 0.0.0.0
+OSPF 区域数: 0
+外部 LSA 数: 0
+OSPF 邻居总数: 0
+- 无建立的 OSPF 邻居
+
+[运行服务清单]
+  auditd.service             loaded active running Security Audit Logging Service
+  chronyd.service            loaded active running NTP client/server
+  crond.service              loaded active running Command Scheduler
+  dbus-broker.service        loaded active running D-Bus System Message Bus
+  frr.service                loaded active running FRRouting
+  fwupd.service              loaded active running Firmware update daemon
+  getty@tty1.service         loaded active running Getty on tty1
+  gssproxy.service           loaded active running GSSAPI Proxy Daemon
+  httpd.service              loaded active running The Apache HTTP Server
+  NetworkManager.service     loaded active running Network Manager
+  polkit.service             loaded active running Authorization Manager
+  qemu-guest-agent.service   loaded active running QEMU Guest Agent
+  rpcbind.service            loaded active running RPC Bind
+  rsyslog.service            loaded active running System Logging Service
+  serial-getty@ttyS0.service loaded active running Serial Getty on ttyS0
+  sshd.service               loaded active running OpenSSH server daemon
+  systemd-journald.service   loaded active running Journal Service
+  systemd-logind.service     loaded active running User Login Management
+  systemd-udevd.service      loaded active running Rule-based Manager for Device Events and Files
+  systemd-userdbd.service    loaded active running User Database Manager
+  user@0.service             loaded active running User Manager for UID 0
